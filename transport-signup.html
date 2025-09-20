@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transport Signup - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="floating-card">
+    <h2>Signup as <span id="roleText"></span></h2>
+
+    <!-- Signup Form -->
+    <input type="text" id="phone" placeholder="Phone Number" class="input-field">
+    <input type="password" id="password" placeholder="Password" class="input-field">
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" class="input-field">
+
+    <button class="btn" onclick="signupTransport()">Submit</button>
+
+    <p class="message" id="signupMessage"></p>
+
+    <!-- Back option -->
+    <p>
+      Already have an account?  
+      <button class="small btn" onclick="window.location.href='transport-login.html'">Login</button>
+    </p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/transport-auth.js"></script>
+
+  <script>
+    // Update role text dynamically
+    document.addEventListener("DOMContentLoaded", () => {
+      const role = localStorage.getItem("signupRole");
+      const roleText = document.getElementById("roleText");
+
+      if (role) {
+        roleText.innerText = role.toUpperCase();
+      } else {
+        roleText.innerText = "UNKNOWN";
+        document.getElementById("signupMessage").innerText =
+          "⚠️ Role not selected. Please go back and choose Owner or Driver.";
+        document.getElementById("signupMessage").style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>

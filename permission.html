@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permissions - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="floating-card">
+    <img src="../assets/images/bus-logo.png" alt="MyBus Logo" class="logo-small">
+    <h2>Permissions Required</h2>
+    <p>We need your permission to access location and manage calls for better service.</p>
+
+    <button class="btn" onclick="requestPermissions()">Allow Permissions</button>
+    <button class="btn-secondary" onclick="window.location.href='../index.html'">Deny</button>
+
+    <p class="message" id="permissionStatus"></p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Config + Init -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/location.js"></script>
+
+  <script>
+    function requestPermissions() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            document.getElementById("permissionStatus").innerText =
+              "✅ Location access granted";
+
+            // Save location into Firebase
+            saveUserLocation(position.coords.latitude, position.coords.longitude);
+
+            // Redirect based on role
+            const role = localStorage.getItem("role");
+            if (role === "customer") {
+              window.location.href = "customer.html";
+            } else if (role === "owner") {
+              window.location.href = "dashboard-owner.html";
+            } else if (role === "driver") {
+              window.location.href = "dashboard-driver.html";
+            } else {
+              window.location.href = "error.html";
+            }
+          },
+          () => {
+            document.getElementById("permissionStatus").innerText =
+              "❌ Location access denied";
+          }
+        );
+      } else {
+        document.getElementById("permissionStatus").innerText =
+          "❌ Geolocation not supported by your browser.";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transport Login - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="floating-card">
+    <h2>Transport Service Login</h2>
+
+    <input type="text" id="phone" placeholder="Owner/Driver Phone Number" class="input-field">
+    <input type="password" id="password" placeholder="Password" class="input-field">
+
+    <button type="button" class="btn" onclick="loginTransport()">Login</button>
+
+    <p class="message" id="loginMessage"></p>
+
+    <p>
+      Don’t have an account?  
+      <a href="transport-signup-role.html" class="btn small">Sign up</a>
+    </p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Config + Init -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/transport.js"></script>
+</body>
+</html>

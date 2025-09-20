@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transport Signup Role - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="role-page">
+  <div class="floating-card">
+    <h2>Sign Up as</h2>
+
+    <button class="btn" onclick="selectRole('owner')">🚍 Owner</button>
+    <button class="btn" onclick="selectRole('driver')">👨‍✈️ Driver</button>
+
+    <p class="message">Choose your role to continue</p>
+  </div>
+
+  <script>
+    function selectRole(role) {
+      localStorage.setItem("signupRole", role);
+      window.location.href = "transport-signup.html";
+    }
+  </script>
+</body>
+</html>

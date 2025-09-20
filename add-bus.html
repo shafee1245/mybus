@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Bus - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="floating-card">
+    <h2>Add New Bus</h2>
+
+    <!-- Bus Form -->
+    <form id="transportForm">
+      <input type="text" id="vehicleName" placeholder="Bus / Vehicle Name" class="input-field" required>
+      <input type="text" id="vehicleNumber" placeholder="Bus Number (e.g. TN 01 AB 1234)" class="input-field" required>
+      <input type="text" id="fromLocation" placeholder="From Location" class="input-field" required>
+      <input type="text" id="toLocation" placeholder="To Location" class="input-field" required>
+      <input type="time" id="departureTime" class="input-field" required>
+
+      <h3>Add Stops</h3>
+      <input type="text" id="stopName" placeholder="Stop Name" class="input-field">
+      <input type="time" id="stopTime" class="input-field">
+      <button type="button" id="addStopBtn" class="btn">➕ Add Stop</button>
+
+      <ul id="stopsList"></ul>
+
+      <button type="submit" class="btn">✅ Save Bus</button>
+    </form>
+
+    <p class="message" id="transportMessage"></p>
+
+    <button class="btn-secondary" onclick="window.location.href='dashboard-owner.html'">⬅ Back to Dashboard</button>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/transport.js"></script>
+</body>
+</html>

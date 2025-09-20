@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify OTP - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="floating-card">
+    <img src="../assets/images/bus-logo.png" alt="MyBus Logo" class="logo-small" />
+    <h2>Phone Verification</h2>
+
+    <!-- Phone input -->
+    <input type="text" id="phone" placeholder="Enter Phone Number" />
+
+    <!-- Send OTP -->
+    <button class="btn" id="sendOtpBtn" onclick="sendOTP()">Send OTP</button>
+
+    <!-- OTP input -->
+    <div id="otpSection" style="display:none;">
+      <input type="text" id="otp" placeholder="Enter OTP" />
+      <button class="btn" id="verifyOtpBtn" onclick="verifyOTP()">Verify OTP</button>
+    </div>
+
+    <!-- reCAPTCHA container (invisible) -->
+    <div id="recaptcha-container"></div>
+
+    <p id="message" class="message"></p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Config + Init -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

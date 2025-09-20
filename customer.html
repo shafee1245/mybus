@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    #map {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-card">
+    <img src="../assets/images/bus-logo.png" alt="MyBus Logo" class="logo-small">
+    <h2>Search for Buses</h2>
+
+    <!-- Search Form -->
+    <form id="customerForm">
+      <input type="text" id="fromInput" placeholder="From (e.g. Vellore)" class="input-field">
+      <input type="text" id="toInput" placeholder="To (e.g. Chennai)" class="input-field">
+      <button type="submit" class="btn">Search</button>
+    </form>
+
+    <!-- Message -->
+    <p id="customerMessage" class="message"></p>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Results -->
+    <div id="resultsSection" style="display:none;">
+      <h3>Nearby Buses</h3>
+      <ul id="resultsList"></ul>
+    </div>
+
+    <!-- Navigation -->
+    <button class="btn" onclick="window.location.href='profile.html'">Profile</button>
+    <button class="btn-secondary" onclick="window.location.href='../index.html'">Logout</button>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Config + Init -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/customer.js"></script>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXRMCyv5Jzsfc23vcKFXjfGdRdoYgsNVo&callback=initMap" async defer></script>
+</body>
+</html>

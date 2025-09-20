@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Dashboard - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="floating-card">
+    <img src="../assets/images/bus-logo.png" alt="MyBus Logo" class="logo-small">
+    <h2>Welcome, <span id="driverName">Driver</span></h2>
+
+    <p><strong>Status:</strong> <span id="driverStatus" style="color:red;">❌ Offline</span></p>
+    <button class="btn" id="updateStatusBtn">Go Online</button>
+
+    <button class="btn-secondary" id="logoutBtn">Logout</button>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Config + Init -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/driver.js"></script>
+
+  <script>
+    // Auto-load driver data on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof loadDriverDashboard === "function") {
+        loadDriverDashboard();
+      }
+    });
+  </script>
+</body>
+</html>

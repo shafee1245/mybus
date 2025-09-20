@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="floating-card">
+    <img src="../assets/images/bus-logo.png" alt="MyBus Logo" class="logo-small">
+    <h2>My Profile</h2>
+
+    <div class="profile-info">
+      <p><strong>Name:</strong> <span id="profileName">Loading...</span></p>
+      <p><strong>Phone:</strong> <span id="profilePhone">Loading...</span></p>
+      <p><strong>Role:</strong> <span id="profileRole">Loading...</span></p>
+    </div>
+
+    <button class="btn" id="dashboardBtn">Go to Dashboard</button>
+    <button class="btn small" id="logoutBtn">Logout</button>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

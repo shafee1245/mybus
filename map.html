@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Bus Map - MyBus</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* Make the map take full screen */
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Firebase Config + Init -->
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/firebase.js"></script>
+
+  <!-- Map Logic -->
+  <script src="../js/map.js"></script>
+
+  <!-- Google Maps API with your key -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXRMCyv5Jzsfc23vcKFXjfGdRdoYgsNVo&callback=initMap" async defer></script>
+</body>
+</html>
